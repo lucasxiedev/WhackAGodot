@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bpr3yyjc65iat"]
+
+[ext_resource type="Texture2D" uid="uid://ck2agnqq1w1bk" path="res://icon.svg" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://bebtipeha80r3" path="res://world.gd" id="1_fj7yv"]
+
+[node name="World" type="Node2D" unique_id=264152153]
+script = ExtResource("1_fj7yv")
+
+[node name="Button" type="Button" parent="." unique_id=2069726176]
+offset_left = 572.0
+offset_top = 292.0
+offset_right = 708.0
+offset_bottom = 428.0
+icon = ExtResource("1_f3sb7")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1274741756]
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 143.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(1, 0.12941177, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Score: 0"
+
+[node name="TimeLabel" type="Label" parent="." unique_id=1602047909]
+offset_left = 30.0
+offset_top = 82.0
+offset_right = 151.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 30
+text = "Time: 10"
+
+[node name="Timer" type="Timer" parent="." unique_id=1607531077]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="Button" to="." method="increase_score"]
+[connection signal="timeout" from="Timer" to="." method="game_over"]
